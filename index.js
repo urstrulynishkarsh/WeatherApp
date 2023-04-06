@@ -117,7 +117,7 @@ const dataCloud=document.querySelector("[data-clouds]")
         dataTemperature.innerText = `${weatherInfo?.main?.temp}°C`;
         dataWindSpeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
         dataHumidity.innerText = `${weatherInfo?.main?.humidity}%`;
-        dataCloud.innerText = weatherInfo?.clouds?.all;
+        dataCloud.innerText = `${weatherInfo?.clouds?.all}%`;
 
     }
     function showPosition(position){
