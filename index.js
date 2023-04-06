@@ -56,10 +56,11 @@ searchTab.addEventListener('click',()=>{
     
 
     function  getFromSessionStorage(){
-        const localCoordinates =sessionStorage.getItem("user-coordinates")
+        let localCoordinates =sessionStorage.getItem("user-coordinates")
         if(!localCoordinates)
         {
             grantLocationContainers.classList.add("active");
+            
         }
         else{
             const coordinates=JSON.parse(localCoordinates);
@@ -90,7 +91,7 @@ searchTab.addEventListener('click',()=>{
          catch(error) {
             loadingContainer.classList.remove('active');
             // errorMessage.classList.remove("active");
-
+            console.error("API Cannot fetched and ", err);
 
             // hw
          }
@@ -119,7 +120,14 @@ const dataCloud=document.querySelector("[data-clouds]")
         dataCloud.innerText = weatherInfo?.clouds?.all;
 
     }
-
+    function showPosition(position){
+        const  userCoordinates={
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+        }
+        sessionStorage.setItem("user-coordinates",JSON.stringify(userCoordinates));
+        fetchWeatherinfo(userCoordinates);
+    }
 
     function getLocation(){
         if(navigator.geolocation)
@@ -131,14 +139,7 @@ const dataCloud=document.querySelector("[data-clouds]")
             alert("You device/Browser does not support geolocation 😥")
         }
     }
-    function showPosition(position){
-        const  userCoordinates={
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
-        }
-        sessionStorage.setItem("user-Coordinates",JSON.stringify(userCoordinates));
-        fetchWeatherinfo(userCoordinates);
-    }
+   
     grantAccessButton.addEventListener("click", getLocation);
 
 dataSearchForm.addEventListener("submit", (e)=>{
