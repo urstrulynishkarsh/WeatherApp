@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Nishkarsh</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="wrapper">
+        <h1 class="heading">WEATHER APP</h1>
+        <div class="tab-container">
+            <p class="tab" data-userWeather>Your Weather</p>
+            <p class="tab" data-searchWeather>Search Weather</p>
+        </div>
+        <div class="weather-container">
+            <!-- grant location -->
+            <div class="subclass grant-location-container">
+                <img src="https://www.iconpacks.net/icons/2/free-location-icon-2955-thumb.png" alt="" loading="lazy" width="100px" loading="lazy">
+                <p>Grant Loaction Access</p>
+                <p>Allow Access to get Weather Information</p>
+                <button class="btn" data-grantAccess>Grant Access</button>
+            </div>
+
+            <!-- search form -->
+            <form class="form-container" data-searchForm>
+               
+                    <input  placeholder="Search for City" data-searchInput>
+                    <button class="btn"><img src="https://cdn.pixabay.com/photo/2013/07/12/12/34/magnifying-glass-145942__340.png" width="30px" alt=""></button>
+                
+            </form>
+
+            <!-- loading screen -->
+            <div class='subclass loading-container' >
+                <div class='spinner'></div>
+                <p class='text-lg font-semibold '>Loading......</p>
+            </div>
+
+            <!-- show weather information -->
+
+            <div class="subclass show-weather-information">
+                <div class="name">
+                    <p data-cityName></p>
+                    <img data-cityImage>
+                </div>
+                <p data-weatherDesc></p>
+                <img data-weatherIcon>
+                <p data-temp></p>
+
+                <!-- 3card -->
+                <div class="parameter-container">
+                    <div class="parameter">
+                        <img src="./assets/wind.png" alt="">
+                        <p>WindSpeed</p>
+                        <p data-windSpeed></p>
+                    </div>
+                    <div class="parameter">
+                        <img src="./assets/humidity.png" alt="">
+                        <p>Humidity</p>
+                        <p data-humidity></p>
+                    </div>
+                    <div class="parameter">
+                        <img src="./assets/cloud.png" alt="">
+                        <p>Clouds</p>
+                        <p data-clouds></p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+              <!-- --error-404-NOt-FOUND-screen-- -->
+              <div class="subclass error-container">
+                <img src="./assets/not-found.png" alt="" width="150" height="150">
+                <p>City Not Found</p>
+            </div>
+
+
+        </div>
+
+    </div>
+    
+
+    <script src="index.js"></script>
+</body>
+</html>
